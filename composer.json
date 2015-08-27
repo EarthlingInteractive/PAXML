@@ -15,12 +15,12 @@
 	},
 	"autoload": {
 		"psr-0": {
-			"EarthIT_PAXML_": "lib/"
+			"EarthIT_PAXML": "lib/"
 		}
 	},
 	"autoload-dev": {
 		"psr-0": {
-			"EarthIT_PAXML_": "test/"
+			"EarthIT_PAXML": "test/"
 		}
 	}
 }

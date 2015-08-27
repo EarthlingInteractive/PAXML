@@ -1,6 +1,6 @@
 <?php
 
-class EarthIT_PAXMLTest
+class EarthIT_PAXMLTest extends PHPUnit_Framework_TestCase
 {
 	public function testEmit() {
 		ob_start();
