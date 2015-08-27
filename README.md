@@ -24,3 +24,9 @@ and then output it using
 ```php
 $emitter->emit($value, "", "\t", function($text) { echo $text; });
 ```
+
+If you need a Nife_Blob, make one like so:
+
+```php
+$blob = new EarthIT_PAXML_PAXMLBlob($value);
+```
