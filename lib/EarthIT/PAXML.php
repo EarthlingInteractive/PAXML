@@ -8,7 +8,7 @@ class EarthIT_PAXML {
 	
 	public static function emitBlock( $thing, $indent="", $indentDelta="\t" ) {
 		echo $indent;
-		self::emit($thing);
+		self::emit($thing, $indent, $indentDelta);
 		echo "\n";
 	}
 }
