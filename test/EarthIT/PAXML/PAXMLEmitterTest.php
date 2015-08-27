@@ -7,9 +7,8 @@ class EarthIT_PAXML_PAXMLEmitterTest extends PHPUnit_Framework_TestCase
 	}
 	
 	protected function assertEncodesAs($expectedOutput, $thing) {
-		$c = new EarthIT_Collector();
-		$this->e->emit( $thing, "", "\t", $c );
-		$this->assertEquals( $expectedOutput, (string)$c );
+		$blob = new EarthIT_PAXML_PAXMLBlob($thing);
+		$this->assertEquals( $expectedOutput, (string)$blob );
 	}
 	
 	public function testEmitText() {
