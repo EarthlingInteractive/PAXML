@@ -26,15 +26,17 @@ class EarthIT_PAXML_PAXMLEmitter
 				$stuff .= ">";
 				call_user_func( $outputFunction, $stuff );
 				$childIndent = $indent.$indentDelta;
-				$previousChildWasText = false;
+				$containsText = false;
 				foreach( $children as $c ) {
-					if( !is_scalar($c) and !$previousChildWasText ) {
+					if( is_scalar($c) ) $containsText = true;
+				}
+				foreach( $children as $c ) {
+					if( !$containsText ) {
 						call_user_func( $outputFunction, "\n$childIndent" );
 					}
-					$this->emit($c, $indent, $indentDelta, $outputFunction);
-					$previousChildWasText = is_scalar($c);
+					$this->emit($c, $childIndent, $indentDelta, $outputFunction);
 				}
-				if( !$previousChildWasText ) call_user_func( $outputFunction, "\n$indent" );
+				if( !$containsText ) call_user_func( $outputFunction, "\n$indent" );
 				call_user_func( $outputFunction, "</$tagName>" );
 			}
 		} else if( is_scalar($thing) ) {

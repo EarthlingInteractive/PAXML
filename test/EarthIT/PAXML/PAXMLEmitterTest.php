@@ -36,15 +36,25 @@ class EarthIT_PAXML_PAXMLEmitterTest extends PHPUnit_Framework_TestCase
 	
 	public function testEmitTagWitChrildens() {
 		$this->assertEncodesAs(
-			"<p>\n".
-			"\t<br/>OH &lt; HELLO<br/>\n".
-			"</p>", ['p', ['br'], 'OH < HELLO', ['br']]);
+			"<p><br/>OH &lt; HELLO<br/></p>",
+			['p', ['br'], 'OH < HELLO', ['br']]);
 	}
 	
 	public function testEmitParagraphWithSpan() {
 		$this->assertEncodesAs(
 			'<p style="color: green">I like <span style="color: red">food</span>.</p>',
 			['p', 'style'=>'color: green', 'I like ', ['span', 'style'=>'color: red', 'food'], '.']
+		);
+	}
+	
+	public function testEmitNestedStuff() {
+		$this->assertEncodesAs(
+			"<tr>\n".
+			"\t<td>\n".
+			"\t\t<label>Thing <input type=\"checkbox\"/></label>\n".
+			"\t</td>\n".
+			"</tr>",
+			['tr', ['td', ['label', 'Thing ', ['input', 'type'=>'checkbox']]]]
 		);
 	}
 }
