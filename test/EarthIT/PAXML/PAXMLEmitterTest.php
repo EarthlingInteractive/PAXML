@@ -40,4 +40,11 @@ class EarthIT_PAXML_PAXMLEmitterTest extends PHPUnit_Framework_TestCase
 			"\t<br/>OH &lt; HELLO<br/>\n".
 			"</p>", ['p', ['br'], 'OH < HELLO', ['br']]);
 	}
+	
+	public function testEmitParagraphWithSpan() {
+		$this->assertEncodesAs(
+			'<p style="color: green">I like <span style="color: red">food</span>.</p>',
+			['p', 'style'=>'color: green', 'I like ', ['span', 'style'=>'color: red', 'food'], '.']
+		);
+	}
 }

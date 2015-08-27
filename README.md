@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/EarthlingInteractive/PAXML.svg?branch=master)](https://travis-ci.org/EarthlingInteractive/PAXML)
 
-## PAXML: PHP Array [representation of] XML
+# PAXML: PHP Array [representation of] XML
 
 This is a tiny library for emitting XML.  Or XHTML.
 
@@ -29,4 +29,26 @@ If you need a Nife_Blob, make one like so:
 
 ```php
 $blob = new EarthIT_PAXML_PAXMLBlob($value);
+```
+
+## Values
+
+Scalars represent text.
+
+Arrays represent elements.
+
+The 0th element of an array gives the tag name.
+
+Subsequent numerically-keyed elements of an array give sub-tags.
+
+String-keyed elements of an array give attribute values.
+
+## Examples
+
+```php
+['p', 'style'=>'color: green', 'I like ', ['span', 'style'=>'color: red', 'food'], '.']
+```
+
+```xml
+<p style="color: green">I like <span style="color: red">food</span>.</p>
 ```
