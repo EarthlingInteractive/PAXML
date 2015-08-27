@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/EarthlingInteractive/PAXML.svg?branch=master)](https://travis-ci.org/EarthlingInteractive/PAXML)
+
 ## PAXML: PHP Array [representation of] XML
 
 This is a tiny library for emitting XML.  Or XHTML.
