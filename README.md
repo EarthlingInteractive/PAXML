@@ -16,13 +16,13 @@ e.g. instead of
 you would construct a PAXML value like:
 
 ```php
-['p', 'Hi my name is ', $name]
+$value = ['p', 'Hi my name is ', $name];
 ```
 
 and then output it using 
 
 ```php
-$emitter->emit($value, "", "\t", function($text) { echo $text; });
+EarthIT_PAXML::emit($value);
 ```
 
 If you need a Nife_Blob, make one like so:
@@ -31,7 +31,7 @@ If you need a Nife_Blob, make one like so:
 $blob = new EarthIT_PAXML_PAXMLBlob($value);
 ```
 
-## Values
+## PAXML Values
 
 Scalars represent text.
 
@@ -48,6 +48,8 @@ String-keyed elements of an array give attribute values.
 ```php
 ['p', 'style'=>'color: green', 'I like ', ['span', 'style'=>'color: red', 'food'], '.']
 ```
+
+Will be emitted as:
 
 ```xml
 <p style="color: green">I like <span style="color: red">food</span>.</p>
