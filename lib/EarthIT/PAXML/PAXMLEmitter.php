@@ -2,11 +2,11 @@
 
 class EarthIT_PAXML_PAXMLEmitter
 {
-	public function emit( $thing, $indent, $indentDelta, callable $outputFunction ) {
+	public function emit( $thing, $indent, $indentDelta, $outputFunction ) {
 		if( is_array($thing) ) {
 			$tagName = array_shift($thing);
-			$children = [];
-			$attributes = [];
+			$children = array();
+			$attributes = array();
 			foreach( $thing as $k=>$v ) {
 				if( is_numeric($k) ) {
 					$children[] = $v;
