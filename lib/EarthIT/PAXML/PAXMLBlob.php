@@ -1,6 +1,6 @@
 <?php
 
-class EarthIT_PAXML_PAXMLBlob extends Nife_AbstractBlob
+class EarthIT_PAXML_PAXMLBlob
 {
 	protected $value;
 	protected $indent;
@@ -23,4 +23,10 @@ class EarthIT_PAXML_PAXMLBlob extends Nife_AbstractBlob
 		$emitter = new EarthIT_PAXML_PAXMLEmitter();
 		$emitter->emit( $this->value, $this->indent, $this->indentDelta, $callback );
 	}
+
+	public function __toString() { 
+		$c = new EarthIT_PAXML_PAXMLCollector();
+		$this->writeTo($c);
+		return (string)$c;
+	 }
 }

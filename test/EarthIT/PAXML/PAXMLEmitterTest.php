@@ -1,8 +1,9 @@
 <?php
+use PHPUnit\Framework\TestCase;
 
-class EarthIT_PAXML_PAXMLEmitterTest extends PHPUnit_Framework_TestCase
+class EarthIT_PAXML_PAXMLEmitterTest extends TestCase
 {
-	public function setUp() {
+	public function setUp() : void {
 		$this->e = new EarthIT_PAXML_PAXMLEmitter();
 	}
 	
